@@ -4,7 +4,8 @@ public class App {
     public static void main(String[] args) {
         //es1();
         //es2();
-        es3();
+        //es3();
+        es4();
     }
     public static void es1(){
         Prenotazioni teatro = new Prenotazioni(100);
@@ -67,6 +68,25 @@ public class App {
         }
 
         System.out.println("Saldo finale: " + conto.getSaldo() + " euro");
+    }
+    public static void es4(){
+        ElencoTelefonico elenco = new ElencoTelefonico();
+
+        // Aggiungi contatti
+        elenco.aggiungiContatto("Chiara Rossi", "+39324567890");
+        elenco.aggiungiContatto("Luigi Giallo", "+39334536789");
+
+        // Cerca contatto
+        Contatto contatto = elenco.cercaContatto("Mario Rossi");
+        if (contatto != null) {
+            System.out.println("Contatto trovato: " + contatto.getNome() + " - " + contatto.getNumeroTelefono());
+        }
+
+        // Rimuovi contatto
+        //elenco.rimuoviContatto("Luigi Verdi");
+
+        // Stampa l'elenco telefonico aggiornato
+        elenco.stampaElenco();
     }
 }
 
