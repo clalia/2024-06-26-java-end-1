@@ -1,5 +1,11 @@
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) {
+        //es1();
+        es2();
+    }
+    public static void es1(){
         Prenotazioni teatro = new Prenotazioni(100);
 
         // Prenotare il posto 10
@@ -19,5 +25,27 @@ public class App {
         }
         // Verificare di nuovo la disponibilità di una serie di posti
         System.out.println("Posti 30, 31, 32 disponibili: " + teatro.sonoPostiDisponibili(postiDaVerificare));
+    }
+    public static void es2() {
+        // Esempio di utilizzo della classe Studente con ArrayList per nome e matricola
+        ArrayList<String> nome = new ArrayList<>();
+        nome.add("Cla Lia");
+        nome.add("Anna G");
+
+        ArrayList<String> matricola = new ArrayList<>();
+        matricola.add("237018");
+        matricola.add("237019");
+
+        RegistroStudenti registro = new RegistroStudenti(nome, matricola);
+        
+        try {
+            registro.aggiungiVoto(25,0);
+            registro.aggiungiVoto(28,1);
+            registro.aggiungiVoto(30,0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
+        
+        registro.stampaDettagli();
     }
 }
