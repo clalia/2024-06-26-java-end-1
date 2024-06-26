@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
         //es1();
-        es2();
+        //es2();
+        es3();
     }
     public static void es1(){
         Prenotazioni teatro = new Prenotazioni(100);
@@ -36,7 +37,7 @@ public class App {
         matricola.add("237018");
         matricola.add("237019");
 
-        RegistroStudenti registro = new RegistroStudenti(nome, matricola);
+        RegistroStudenti registro = new RegistroStudenti();
         
         try {
             registro.aggiungiVoto(25,0);
@@ -48,4 +49,24 @@ public class App {
         
         registro.stampaDettagli();
     }
+    public static void es3() {
+        ContoBancario conto = new ContoBancario(1000);
+
+        System.out.println("Saldo iniziale: " + conto.getSaldo() + " euro");
+
+        try {
+            conto.deposita(500);
+            System.out.println("Nuovo saldo dopo deposito: " + conto.getSaldo() + " euro");
+
+            conto.preleva(200);
+            System.out.println("Nuovo saldo dopo prelievo: " + conto.getSaldo() + " euro");
+
+            conto.preleva(2000);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
+
+        System.out.println("Saldo finale: " + conto.getSaldo() + " euro");
+    }
 }
+
