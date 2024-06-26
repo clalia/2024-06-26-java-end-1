@@ -10,26 +10,26 @@ public class App {
     public static void es1(){
         Prenotazioni teatro = new Prenotazioni(100);
 
-        // Prenotare il posto 10
+        
         System.out.println("Prenotazione posto 10: " + teatro.Prenota(10)); 
-        // Verificare se il posto 10 è disponibile
+        
         System.out.println("Posto 10 disponibile: " + teatro.isDisponibile(10)); 
-        // Annullare la prenotazione del posto 10
+        
         System.out.println("Annullamento prenotazione posto 10: " + teatro.annullaPrenotazione(10)); 
-        // Verificare se il posto 10 è disponibile dopo l'annullamento
+        
         System.out.println("Posto 10 disponibile: " + teatro.isDisponibile(10)); 
 
-        // Verificare la disponibilità di una serie di posti
+        
         int[] postiDaVerificare = {30, 31, 32};
         System.out.println("Posti 30, 31, 32 disponibili: " + teatro.sonoPostiDisponibili(postiDaVerificare));
         for (int posto : postiDaVerificare) {
             teatro.Prenota(posto);
         }
-        // Verificare di nuovo la disponibilità di una serie di posti
+        
         System.out.println("Posti 30, 31, 32 disponibili: " + teatro.sonoPostiDisponibili(postiDaVerificare));
     }
     public static void es2() {
-        // Esempio di utilizzo della classe Studente con ArrayList per nome e matricola
+        
         ArrayList<String> nome = new ArrayList<>();
         nome.add("Cla Lia");
         nome.add("Anna G");
@@ -72,20 +72,20 @@ public class App {
     public static void es4(){
         ElencoTelefonico elenco = new ElencoTelefonico();
 
-        // Aggiungi contatti
+        
         elenco.aggiungiContatto("Chiara Rossi", "+39324567890");
         elenco.aggiungiContatto("Luigi Giallo", "+39334536789");
 
-        // Cerca contatto
-        Contatto contatto = elenco.cercaContatto("Mario Rossi");
+        
+        Contatto contatto = elenco.cercaContatto("Chiara Rossi");
         if (contatto != null) {
             System.out.println("Contatto trovato: " + contatto.getNome() + " - " + contatto.getNumeroTelefono());
         }
 
-        // Rimuovi contatto
+        
         //elenco.rimuoviContatto("Luigi Verdi");
 
-        // Stampa l'elenco telefonico aggiornato
+
         elenco.stampaElenco();
     }
 }
