@@ -24,15 +24,27 @@ public class Contatto {
         this.elenco = new ArrayList<>();
     }
 
-    public void aggiungiContatto(String nome, String numeroTelefono) throws IllegalArgumentException {
+    public void aggiungiContatto(String nome, String numTel) throws IllegalArgumentException {
         try {
-            Contatto nuovoContatto = new Contatto(nome, numeroTelefono);
+            Contatto nuovoContatto = new Contatto(nome, numTel);
             elenco.add(nuovoContatto);
-            System.out.println("Contatto aggiunto: " + nome + " - " + numeroTelefono);
+            System.out.println("Contatto aggiunto: " + nome + " - " + numTel);
         } catch (IllegalArgumentException e) {
             System.out.println("Errore: " + e.getMessage());
         }
     }
+    public void rimuoviContatto(String nome){
+        for (int i = 0; i < elenco.size(); i++) {
+            Contatto contatto = elenco.get(i);
+            if (contatto.getNome().equals(nome)) {
+                elenco.remove(i);
+                System.out.println("Contatto rimosso: " + nome);
+                return;
+            }
+        }
+        System.out.println("Contatto non trovato: " + nome);
+    }
+        
 
 
     public Contatto cercaContatto(String nome) {
@@ -49,8 +61,6 @@ public class Contatto {
         System.out.println("Elenco Telefonico:");
         for (Contatto contatto : elenco) {
             System.out.println(contatto.getNome() + " - " + contatto.getNumeroTelefono());
-        }
-        System.out.println("Fine dell'elenco.");
     }
 }
-}
+

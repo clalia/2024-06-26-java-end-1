@@ -5,7 +5,7 @@ public class App {
         //es1();
         //es2();
         //es3();
-        es4();
+        //es4();
     }
     public static void es1(){
         Prenotazioni teatro = new Prenotazioni(100);
@@ -83,7 +83,7 @@ public class App {
         }
 
         
-        //elenco.rimuoviContatto("Luigi Verdi");
+        elenco.rimuoviContatto("Luigi Giallo");
 
 
         elenco.stampaElenco();
