@@ -12,7 +12,7 @@ public class RegistroStudenti {
         this.voti=new ArrayList<>();
     
         for (int i = 0; i < nome.size(); i++) {
-            voti.add(0); // Assumo 0 come voto neutro iniziale
+            voti.add(0); // Assumo 0 come voto iniziale
         }
     }
 
