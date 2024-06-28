@@ -24,45 +24,6 @@ public class Camera {
     public void setDisponibile(boolean disponibile) {
         this.disponibile = disponibile;
     }
-    public class Cliente {
-        private String nome;
-    
-        public Cliente(String nome) {
-            this.nome = nome;
-        }
-    
-        public String getNome() {
-            return nome;
-        }
-    public class Prenotazioni{
-        private Cliente cliente;
-    private Camera camera;
-    private LocalDate dataInizio;
-    private LocalDate dataFine;
-
-    public Prenotazioni (Cliente cliente, Camera camera, LocalDate dataInizio, LocalDate dataFine) {
-        this.cliente = cliente;
-        this.camera = camera;
-        this.dataInizio = dataInizio;
-        this.dataFine = dataFine;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public Camera getCamera() {
-        return camera;
-    }
-
-    public LocalDate getDataInizio() {
-        return dataInizio;
-    }
-
-    public LocalDate getDataFine() {
-        return dataFine;
-    }
-
     public class SistemaPrenotazioni {
     private Map<Cliente, Prenotazioni> prenotazioni;
     private List<Camera> camereDisponibili;
@@ -76,9 +37,9 @@ public SistemaPrenotazioni() {
     }
 
     public void effettuaPrenotazione(Cliente cliente, Camera camera, LocalDate dataInizio, LocalDate dataFine) 
-    throws CameraNonDisponibileException {
+    throws Exception {
         if (!camera.isDisponibile()) {
-            throw new CameraNonDisponibileException("La camera " + camera.getNumero() + " non è disponibile.");
+            throw new Exception("La camera " + camera.getNumero() + " non è disponibile.");
         }
 
         Prenotazioni nuovaPrenotazione = new Prenotazioni(cliente, camera, dataInizio, dataFine);
@@ -88,7 +49,7 @@ public SistemaPrenotazioni() {
     }
 
     public void modificaPrenotazione(Cliente cliente, Camera nuovaCamera, LocalDate nuovaDataInizio, LocalDate nuovaDataFine)
-            throws CameraNonDisponibileException {
+            throws Exception {
         cancellaPrenotazione(cliente); 
         effettuaPrenotazione(cliente, nuovaCamera, nuovaDataInizio, nuovaDataFine);
     }
@@ -103,28 +64,5 @@ public SistemaPrenotazioni() {
         } else {
             System.out.println("Nessuna prenotazione trovata per " + cliente.getNome());
         }
-    }
-
-    public static void main(String[] args) {
-        SistemaPrenotazioni sistema = new SistemaPrenotazioni();
-
-        Cliente cliente1 = new Cliente("Mario Rossi");
-        Cliente cliente2 = new Cliente("Luigi Verdi");
-
-        Camera camera1 = sistema.camereDisponibili.get(0);
-        Camera camera2 = sistema.camereDisponibili.get(1);
-
-        try {
-            sistema.effettuaPrenotazione(cliente1, camera1, LocalDate.of(2024, 7, 1), LocalDate.of(2024, 7, 5));
-            sistema.effettuaPrenotazione(cliente2, camera2, LocalDate.of(2024, 7, 3), LocalDate.of(2024, 7, 6));
-
-            sistema.modificaPrenotazione(cliente1, camera2, LocalDate.of(2024, 7, 1), LocalDate.of(2024, 7, 4));
-
-            sistema.cancellaPrenotazione(cliente2);
-        } catch (CameraNonDisponibileException e) {
-            System.out.println("Errore durante la prenotazione: " + e.getMessage());
-        }
-    }
-}
     }
 }

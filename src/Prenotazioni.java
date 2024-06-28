@@ -1,4 +1,34 @@
+import java.time.LocalDate;
+
 public class Prenotazioni {
+    private Cliente cliente;
+    private Camera camera;
+    private LocalDate dataInizio;
+    private LocalDate dataFine;
+
+    public Prenotazioni (Cliente cliente, Camera camera, LocalDate dataInizio, LocalDate dataFine) {
+        this.cliente = cliente;
+        this.camera = camera;
+        this.dataInizio = dataInizio;
+        this.dataFine = dataFine;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public LocalDate getDataInizio() {
+        return dataInizio;
+    }
+
+    public LocalDate getDataFine() {
+        return dataFine;
+    }
+
     private boolean[] posti;
 
     public Prenotazioni (int numPosti){

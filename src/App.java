@@ -6,7 +6,9 @@ public class App {
         //es2();
         //es3();
         //es4();
-        es5();
+        //es5();
+        //es6();
+        es7();
     }
 
     public static void es1() {
@@ -93,7 +95,7 @@ public class App {
 }
 
     
-
+/* 
     public static void es5() {
 
         SistemaElettorale sistema = new SistemaElettorale();
@@ -116,4 +118,61 @@ public class App {
         }
     }
 }
+   
+    public static void es6(){
+        SistemaPrenotazioni sistema = new SistemaPrenotazioni();
+
+        Cliente cliente1 = new Cliente("Mario Rossi");
+        Cliente cliente2 = new Cliente("Luigi Verdi");
+
+        Camera camera1 = sistema.camereDisponibili.get(0);
+        Camera camera2 = sistema.camereDisponibili.get(1);
+
+        try {
+            sistema.effettuaPrenotazione(cliente1, camera1, LocalDate.of(2024, 7, 1), LocalDate.of(2024, 7, 5));
+            sistema.effettuaPrenotazione(cliente2, camera2, LocalDate.of(2024, 7, 3), LocalDate.of(2024, 7, 6));
+
+            sistema.modificaPrenotazione(cliente1, camera2, LocalDate.of(2024, 7, 1), LocalDate.of(2024, 7, 4));
+
+            sistema.cancellaPrenotazione(cliente2);
+        } catch (Exception e) {
+            System.out.println("Errore durante la prenotazione: " + e.getMessage());
+        }
+    }
+         */
+    public static void es7(){
+
+            Impiegato i1 = new Impiegato("Giorgio", "gio", "123456", 1600);
+            Impiegato i2 = new Impiegato("Elena", "Bob", "654321", 1700);
+            Impiegato i3 = new Impiegato("Claudia", "La", "abcdef", 3000);
+    
+            System.out.println(i1);
+            System.out.println(i2);
+            System.out.println(i3);
+    
+            System.out.println("-------------------------------------------------------------------");
+    
+            Manager m1 = new Manager("Domenico", "Rossi", "ghijkl", 4000, 10000);
+            Manager m2 = new Manager("John", "Verdi", "mnopqr", 5000, 20000);
+            Manager m3 = new Manager("Dan", "Giallo", "stuvwx", 6000, 30000);
+    
+            System.out.println(m1);
+            System.out.println(m2);
+            System.out.println(m3);
+    
+            System.out.println("-------------------------------------------------------------------");
+    
+            Impiegato[] impiegati = { i1, i2, i3, m1, m2, m3 };
+            for (Impiegato i : impiegati) {
+                System.out.println(i);
+                i.incSalary(10);
+                System.out.println(i);
+                System.out.println("-------------------------------------------------------------------");
+            }
+        }
+    }
+
+
+
+    
     
